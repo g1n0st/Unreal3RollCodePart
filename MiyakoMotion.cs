@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MiyakoMotion : MonoBehaviour
 {
-	const float ROLE_BARRAGE_DAMAGE = 10;
+	const float ROLE_BARRAGE_DAMAGE = 3;
 	const float ROLE_SWORD_DAMAGE = 30;
 	const float CHASE_SPEED = 3f;
 	const float ATTACK_RADIUS = 0.9f;
