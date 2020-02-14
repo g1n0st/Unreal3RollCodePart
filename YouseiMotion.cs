@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class YouseiMotion : MonoBehaviour
 {
-	const float ROLE_BARRAGE_DAMAGE = 10;
+	const float ROLE_BARRAGE_DAMAGE = 5;
 	const float ROLE_SWORD_DAMAGE = 30;
 	const float BLOODBAR_LENGTH = 2f;
 
