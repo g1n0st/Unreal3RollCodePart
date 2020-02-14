@@ -21,18 +21,18 @@ public class RoleMotion : MonoBehaviour {
 	public RoleState current_state = RoleState.ST_IDLE;
     private Animator animator;
     public static AnimatorStateInfo info;
-    private int anim_rush = Animator.StringToHash("Rush");
-    private int anim_move = Animator.StringToHash("Move");
-    private int anim_dead = Animator.StringToHash("Dead");
-    private int anim_idle = Animator.StringToHash("Idle");
-	private int anim_attack = Animator.StringToHash("Attack");
-	private int anim_defend = Animator.StringToHash("Defend");
-	private int rush_state = Animator.StringToHash("Layer.rush");
-    private int move_state = Animator.StringToHash("Layer.move");
-    private int dead_state = Animator.StringToHash("Layer.dead");
-    private int idle_state = Animator.StringToHash("Layer.idle");
-    private int attack_state = Animator.StringToHash("Layer.attack");
-	private int defend_state = Animator.StringToHash("Layer.defend");
+    int anim_rush = Animator.StringToHash("Rush");
+    int anim_move = Animator.StringToHash("Move");
+    int anim_dead = Animator.StringToHash("Dead");
+    int anim_idle = Animator.StringToHash("Idle");
+	int anim_attack = Animator.StringToHash("Attack");
+	int anim_defend = Animator.StringToHash("Defend");
+	int rush_state = Animator.StringToHash("Layer.rush");
+    int move_state = Animator.StringToHash("Layer.move");
+    int dead_state = Animator.StringToHash("Layer.dead");
+    int idle_state = Animator.StringToHash("Layer.idle");
+    int attack_state = Animator.StringToHash("Layer.attack");
+	int defend_state = Animator.StringToHash("Layer.defend");
 
 	void SetAnimState(RoleState state, int trigger, string fade, float duration = 0.1f)
 	{
