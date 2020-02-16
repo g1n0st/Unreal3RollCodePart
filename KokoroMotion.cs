@@ -142,7 +142,10 @@ public class KokoroMotion : MonoBehaviour
 	}
 	void Stage3(float delx, float delz, float dist)
 	{
-
+		if (--runtime <= 0)
+		{
+			runtime = 300;
+		}
 	}
 
 	float sword_hit_interval = 0;
@@ -164,12 +167,14 @@ public class KokoroMotion : MonoBehaviour
 			if (current_state != KokoruState.ST_DEAD)
 			{
 				current_state = KokoruState.ST_DEAD;
+				for (int i = 0; i < 8; i++)
+					masks[i].SetActive(false);
 				Destroy(gameObject.GetComponent<Rigidbody>());
 				Destroy(gameObject.GetComponent<CapsuleCollider>());
 				animator.SetTrigger(anim_dead);
 			}
 		}
-		if (current_state == KokoruState.ST_IDLE)
+		else if (current_state == KokoruState.ST_IDLE)
 		{
 			float delx1 = role.transform.position.x - trigger_place.x,
 				dely1 = role.transform.position.y - trigger_place.y,
@@ -203,7 +208,11 @@ public class KokoroMotion : MonoBehaviour
 						masks[i].SetActive(true);
 				}
 				if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) animator.SetTrigger(anim_charm);
-				Stage2(delx, delz, dist);
+				int dead_masks = 0;
+				for (int i = 0; i < 8; i++)
+					if (masks[i].GetComponent<MaskMotion>().mask_blood <= 0) dead_masks++;
+				if (dead_masks == 8) boss_blood = stage3_blood - 1;
+				else Stage2(delx, delz, dist);
 			}
 			else
 			{
@@ -212,6 +221,7 @@ public class KokoroMotion : MonoBehaviour
 					current_stage = StageState.STAGE_3;
 					runtime = 0;
 				}
+				if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) animator.SetTrigger(anim_charm);
 				Stage3(delx, delz, dist);
 			}
 		}
