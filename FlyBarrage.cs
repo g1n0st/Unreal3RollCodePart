@@ -31,7 +31,7 @@ public class FlyBarrage : MonoBehaviour
 			  delz = role.transform.position.z - transform.position.z;
 
 		float dist2 = delx * delx + delz * delz;
-		if (dist2 <= 0.2f)
+		if (dist2 <= (0.15f + transform.localScale.x / 2.0f) * (0.15f + transform.localScale.x / 2.0f))
 		{
 			if (role.GetComponent<RoleMotion>().current_state != RoleMotion.RoleState.ST_RUSH)
 				;//role.SendMessageUpwards("BeAttacked");
